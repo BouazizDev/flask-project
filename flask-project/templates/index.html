@@ -8,16 +8,17 @@
     <title>PREDICTION</title>
 </head>
 <body>
-  <h1>Classification des maladies dentaires</h1>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Home</li>
+    </ol>
+  </nav>
+  <h1 class="text-center">Classification des maladies dentaires</h1>
   <form class="p-3 text-center" action="/" method="POST" enctype="multipart/form-data">
     <input type="file" name="imagefile" class="form-control">
     <input type="submit" class="btn btn-primary mt-3" value="predict">
 
   </form>
-    {% if prediction %}
-    <p class="text-center">{{prediction}}</p>
- 
-
-    {% endif %}
+  
 </body>
 </html>

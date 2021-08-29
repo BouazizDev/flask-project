@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  crossorigin="anonymous">
+    <title>Confirmation</title>
+
+</head>
+<body>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Confirmation</li>
+    </ol>
+  </nav>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+      {{ message }}
+    </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<div class="container mt-5">
+        {% if prediction %}
+    <p class="text-center">{{prediction}}</p>
+ 
+
+    {% endif %}
+    <div class="text-center">
+      <p>choisissez les bonnes étiquettes si vous pensez que le résultat n'est pas exact : </p>
+  
+    </div>
+    <form action="/confirm" method="POST"class="text-center">
+     <div class="p-3 text-center">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="1" id="flexCheckChecked" name="mycheckbox" >
+            <label class="form-check-label" for="flexCheckChecked">
+              carie
+            </label>
+          </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" value="2" id="flexCheckChecked" name="mycheckbox">
+        <label class="form-check-label" for="flexCheckChecked">
+          Bout de racine
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" value="3" id="flexCheckChecked"  name="mycheckbox">
+        <label class="form-check-label" for="flexCheckChecked">
+          Radiculaire
+        </label>
+      </div>
+     </div>
+     <a href="/" class="btn btn-primary mx-3">Confirmer</a>
+      <input type="submit" class="btn btn-warning" value="Corriger">
+    </form>
+    <div class="text-center">
+      <a href="/" class="btn btn-success mt-4 ">Retour</a>
+
+    </div>
+</div>
+</body>
+</html>
